@@ -8,6 +8,9 @@ import AboutYou from "./AboutYou";
 import Schedule from "./Schedule";
 import Symptoms from "./Symptoms";
 
+const SIGN_UP_URL = 'http://localhost:3000/users'
+const SIGN_IN_URL = 'http://localhost:3000/login'
+
 class App extends Component {
 
   state = {
@@ -23,7 +26,7 @@ class App extends Component {
         password: user.password,
       }
     });
-    axios.post('http://localhost:3000/users', body, {
+    axios.post(SIGN_UP_URL, body, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -38,6 +41,22 @@ class App extends Component {
     const body = JSON.stringify({
       email: user.email,
       password: user.password
+    });
+
+    axios.post(SIGN_IN_URL, body, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => {
+      const data = response.data
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        this.setState({
+          user: data.user
+        })
+      }
     })
   }
 

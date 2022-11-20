@@ -163,6 +163,7 @@ const SignIn = (props) => {
           value={signInInput.password}
           onChange={_handleChange}
         />
+        {props.error ? <p className="error-message">{props.error}</p> : null} 
         <button>Sign In</button>
       </form>
     </div>
