@@ -14,4 +14,8 @@ const Schedule = function () {
     </div>
   );
 };
+<<<<<<< Updated upstream
 export default Schedule;
+=======
+export default Schedule;
+>>>>>>> Stashed changes

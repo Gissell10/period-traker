@@ -30,4 +30,4 @@ const Nav = function () {
     </nav>
   );
 };
-export default Nav;
+export default Nav; 

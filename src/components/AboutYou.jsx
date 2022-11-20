@@ -15,4 +15,8 @@ const AboutYou = function () {
     </div>
   );
 };
+<<<<<<< Updated upstream
 export default AboutYou;
+=======
+export default AboutYou;
+>>>>>>> Stashed changes
