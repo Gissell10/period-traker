@@ -1,11 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = function () {
   return (
-    <nav>
-      <a href="/">Insert here LOGO</a>
-      <a href="">Log in</a>
-      <a href="">Log Out</a>
+    <nav className="nav">
+      <ul>
+        <li>
+          <Link to="/"> Home</Link>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <Link to="login"> Log in</Link>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <Link to="calendar"> Calendar</Link>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <Link to="symptoms"> Symptoms</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
