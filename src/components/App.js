@@ -34,13 +34,20 @@ class App extends Component {
     })
   }
 
+  signIn = (user) => {
+    const body = JSON.stringify({
+      email: user.email,
+      password: user.password
+    })
+  }
+
   render() {
     return (
       <div>
-        {this.state.user.firstName ? <h4>Welcome {this.state.user.firstName}</h4> : <Users signUp={this.signUp}/>}
         <Nav />
+        {/* {this.state.user.firstName ? <h4>Welcome {this.state.user.firstName}</h4> : <Users signUp={this.signUp}/>} */}
         <Home />
-        <Users />
+        <Users signUp={this.signUp} signIn={this.signIn}/>
         <AboutYou />
         <Schedule />
         <Symptoms />

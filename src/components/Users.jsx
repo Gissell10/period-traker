@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 
-const Users = function (props) {
+const Users = (props) => {
+  return (
+    <div>
+      <SignUp signUp={props.signUp}/>
+      <SignIn signIn={props.signIn} />
+    </div>
+  )
+}
+export default Users;
+
+
+const SignUp = (props) => {
   const [signUpInput, setSignUpInput] = useState({
     firstName: '',
     lastName: '',
@@ -19,7 +30,7 @@ const Users = function (props) {
     props.signUp(signUpInput)
   }
 
-  const handleChange = (name, value) => {
+  const _handleChange = (name, value) => {
     setSignUpInput({
       ...signUpInput, [name]: value // for all sign up input states, set the name (key) to value
     });
@@ -71,14 +82,14 @@ const Users = function (props) {
         <input
           name="firstName"
           value={signUpInput.firstName} 
-          onChange={({target}) => {handleChange(target.name, target.value)}}
+          onChange={({target}) => {_handleChange(target.name, target.value)}}
         />
         
         <label>Last Name</label>
         <input
           name="lastName" 
           value={signUpInput.lastName} 
-          onChange={({target}) => handleChange(target.name, target.value)}
+          onChange={({target}) => _handleChange(target.name, target.value)}
         />
 
         <label>Email</label>
@@ -86,7 +97,7 @@ const Users = function (props) {
           name="email" 
           type="email" 
           value={signUpInput.email} 
-          onChange={({target}) => handleChange(target.name, target.value)}
+          onChange={({target}) => _handleChange(target.name, target.value)}
         />
         <p className="error-message">{signUpInputError.email}</p>
 
@@ -96,7 +107,7 @@ const Users = function (props) {
           name="password" 
           type="password" 
           value={signUpInput.password} 
-          onChange={({target}) => handleChange(target.name, target.value)}
+          onChange={({target}) => _handleChange(target.name, target.value)}
         />
         <p className="error-message">{signUpInputError.password}</p>
 
@@ -105,7 +116,7 @@ const Users = function (props) {
           name="passwordConfirmation" 
           type="password" 
           value={signUpInput.passwordConfirmation} 
-          onChange={({target}) => handleChange(target.name, target.value)}
+          onChange={({target}) => _handleChange(target.name, target.value)}
         />
         <p className="error-message">{signUpInputError.passwordConfirmation}</p>
 
@@ -115,4 +126,45 @@ const Users = function (props) {
   );
 };
 
-export default Users;
+const SignIn = (props) => {
+  const [signInInput, setSignInInput] = useState({
+    email: '',
+    password: ''
+  });
+
+  const _handleChange = (e) => {
+    const inputTarget = e.target.value;
+    const inputName = e.target.name;
+    setSignInInput({
+      [inputName]: inputTarget
+    });
+  }
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    props.signIn(signInInput)
+  }
+
+  return(
+    <div>
+      <h1>Sign In</h1>
+      <form onSubmit={handleSignIn}>
+        <label>Email</label>
+        <input 
+          name="email" 
+          type="email" 
+          value={signInInput.email}
+          onChange={_handleChange}
+        />
+        <label>Password</label>
+        <input 
+          name="password" 
+          type="password" 
+          value={signInInput.password}
+          onChange={_handleChange}
+        />
+        <button>Sign In</button>
+      </form>
+    </div>
+  );
+}
