@@ -10,7 +10,9 @@ const AboutYou = function () {
         <input type="date" name="last-period" />
         <label htmlFor="">Average cicle</label>
         <input type="number" min="1" max="10" />
-        <button type="Submit">submit</button>
+        <button type="Submit" className="boton">
+          submit
+        </button>
       </form>
     </div>
   );
