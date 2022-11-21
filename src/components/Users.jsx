@@ -78,53 +78,75 @@ const SignUp = (props) => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5 usersForm">
+      <h2 className="mb-3 mt-3">Sign Up</h2>
       <form onSubmit={validateSignUp}>
-        <label>First Name</label>
-        <input
-          name="firstName"
-          value={signUpInput.firstName}
-          onChange={({ target }) => {
-            _handleChange(target.name, target.value);
-          }}
-        />
+        <div className="input-container">
+          <input
+            name="firstName"
+            value={signUpInput.firstName}
+            onChange={({ target }) => {
+              _handleChange(target.name, target.value);
+            }}
+            className="form-control mb-3"
+          />
+          <label className={signUpInput.firstName && "filled"}>
+            First Name
+          </label>
+        </div>
 
-        <label>Last Name</label>
-        <input
-          name="lastName"
-          value={signUpInput.lastName}
-          onChange={({ target }) => _handleChange(target.name, target.value)}
-        />
+        <div className="input-container">
+          <input
+            name="lastName"
+            value={signUpInput.lastName}
+            onChange={({ target }) => _handleChange(target.name, target.value)}
+            className="form-control mb-3"
+          />
+          <label className={signUpInput.lastName && "filled"}>Last Name</label>
+        </div>
 
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          value={signUpInput.email}
-          onChange={({ target }) => _handleChange(target.name, target.value)}
-        />
+        <div className="input-container">
+          <input
+            name="email"
+            type="email"
+            value={signUpInput.email}
+            onChange={({ target }) => _handleChange(target.name, target.value)}
+            className="form-control mb-3"
+          />
+          <label className={signUpInput.email && "filled"}>Email</label>
+        </div>
+
         <p className="error-message">{signUpInputError.email}</p>
 
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          value={signUpInput.password}
-          onChange={({ target }) => _handleChange(target.name, target.value)}
-        />
+        <div className="input-container">
+          <input
+            name="password"
+            type="password"
+            value={signUpInput.password}
+            onChange={({ target }) => _handleChange(target.name, target.value)}
+            className="form-control mb-3"
+          />
+          <label className={signUpInput.password && "filled"}>Password</label>
+        </div>
+
         <p className="error-message">{signUpInputError.password}</p>
 
-        <label>Password Confirmation</label>
-        <input
-          name="passwordConfirmation"
-          type="password"
-          value={signUpInput.passwordConfirmation}
-          onChange={({ target }) => _handleChange(target.name, target.value)}
-        />
+        <div className="input-container">
+          <input
+            name="passwordConfirmation"
+            type="password"
+            value={signUpInput.passwordConfirmation}
+            onChange={({ target }) => _handleChange(target.name, target.value)}
+            className="form-control mb-3"
+          />
+          <label className={signUpInput.passwordConfirmation && "filled"}>
+            Password Confirmation
+          </label>
+        </div>
+
         <p className="error-message">{signUpInputError.passwordConfirmation}</p>
 
-        <button>Sign Up</button>
+        <button className="boton">Sign Up</button>
       </form>
     </div>
   );
@@ -151,25 +173,31 @@ const SignIn = (props) => {
   };
 
   return (
-    <div>
-      <h1>Sign In</h1>
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5 mt-5 usersForm">
+      <h2 className="mb-3 mt-3">Sign In</h2>
       <form onSubmit={handleSignIn}>
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          value={signInInput.email}
-          onChange={_handleChange}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          value={signInInput.password}
-          onChange={_handleChange}
-        />
-        {props.error ? <p className="error-message">{props.error}</p> : null}
-        <button>Sign In</button>
+        <div className="input-container">
+          <input
+            name="email"
+            type="email"
+            value={signInInput.email}
+            onChange={_handleChange}
+            className="form-control mb-3"
+          />
+          <label className={signInInput.email && "filled"}>Email</label>
+        </div>
+        <div className="input-container">
+          <input
+            name="password"
+            type="password"
+            value={signInInput.password}
+            onChange={_handleChange}
+            className="form-control mb-3"
+          />
+          <label className={signInInput.password && "filled"}>Password</label>
+          {props.error ? <p className="error-message">{props.error}</p> : null}
+        </div>
+        <button className="boton">Sign In</button>
       </form>
     </div>
   );
