@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.cs
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "../App.css";
 import Home from "./Home";
