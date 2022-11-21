@@ -16,12 +16,12 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div class="date">
-          <p> ddd {this.state.date}</p>
+        <div className="date">
+          <p>{this.state.date}</p>
         </div>
 
 
-          <h1>Welcome!</h1>
+          <h1>Welcome! </h1>
 
           <p>Thank you for using Period tracker, women's best friend!</p>
 
@@ -30,6 +30,11 @@ class Home extends Component {
           <p>Please let us know more about you.</p>
 
         <img scr="img/Tupl.jpeg" />
+
+        <div className="home-page-button">
+          <button className="boton">Sign In</button>
+          <button className="boton">Sign Out</button>
+        </div>
 
       </div>
         
