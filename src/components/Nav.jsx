@@ -1,33 +1,62 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = function () {
+const Nav = function (props) {
+
+  const getLogged = () => {
+    return (
+      <nav className="nav">
+        <ul>
+          <li>
+           <Link to="calendar">Home</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link to="symptoms">Symptoms</Link>
+          </li>
+        </ul>
+      </nav>
+    )
+  }
+
+  const getNotLogged = () => {
+    return (
+      <nav className="nav">
+        
+        <ul>
+          <li>
+            <Link to="/"> Home</Link>
+          </li>
+        </ul>
+  
+        <ul>
+          <li>
+            <Link to="login">Log in</Link>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <Link to="signup">Sign Up</Link> {/* need to create a link here */}
+          </li>
+        </ul>
+  
+      </nav>
+    );
+  }
+
+  const getNav = () => {
+    if (props.userName) {
+      return getLogged()
+    } else {
+      return getNotLogged()
+    }
+  }
+
   return (
-    <nav className="nav">
-      <ul>
-        <li>
-          <Link to="/"> Home</Link>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <Link to="login"> Log in</Link>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <Link to="calendar"> Calendar</Link>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <Link to="symptoms"> Symptoms</Link>
-        </li>
-      </ul>
-    </nav>
+    getNav()
   );
 };
+
 export default Nav; 

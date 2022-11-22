@@ -38,7 +38,7 @@ class App extends Component {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log('sign up', response.data);
         this.setState({
           user: response.data,
         });
@@ -74,6 +74,11 @@ class App extends Component {
         }
       });
   };
+
+  signOut = () => {
+    localStorage.removeItem('token')
+  }
+
   componentDidMount() {
     let token = localStorage.getItem("token");
     if (token) {
@@ -98,12 +103,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
-          {this.state.user.id ? (
-            <h4>Welcome {this.state.user.first_name}</h4>
-          ) : (
-            <h4>No user</h4>
-          )}
+          <Nav userName={this.state.user.first_name}/>
           <Routes>
             <Route exact path="/" element={<Home />} />
 
@@ -113,6 +113,7 @@ class App extends Component {
                 <Users
                   signUp={this.signUp}
                   signIn={this.signIn}
+                  signOut={this.signOut}
                   error={this.state.error}
                 />
               }
