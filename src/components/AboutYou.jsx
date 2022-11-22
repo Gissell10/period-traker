@@ -4,7 +4,7 @@ import { about } from "../hooks";
 const AboutYou = function () {
   const [userData, setUserData] = useState({
     lastPeriod: " ",
-    averageCycle: "",
+    averageCycle: 0,
     takesPill: false,
     prefersNotifications: false,
   });
@@ -18,13 +18,16 @@ const AboutYou = function () {
       ...userData,
       [name]: value,
     });
-    //console.log(userData);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(userData);
-    about(userData);
+    about({
+        period_end: userData.lastPeriod,
+        average_period_days: userData.averageCycle,
+        take_pill: userData.takesPill,
+        notification_on: userData.prefersNotifications
+    });
   };
 
   return (

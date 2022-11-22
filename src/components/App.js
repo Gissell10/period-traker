@@ -63,7 +63,7 @@ class App extends Component {
       .then((response) => {
         const data = response.data;
         if (data.token) {
-          localStorage.setItem("token", data.token); // this is fetched on componentDidMount
+          localStorage.setItem("token", data.token); // this is fetched later on componentDidMount
           this.setState({
             user: data.user,
           });
