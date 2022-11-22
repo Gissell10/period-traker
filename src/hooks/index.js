@@ -23,8 +23,10 @@ export const about = (params) => {
   if (token) {
     const requestOptions = {
       method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json",  "Authorization": `Bearer ${token}`},
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify(params),
     };
     fetch("http://localhost:3000/setup", requestOptions)
