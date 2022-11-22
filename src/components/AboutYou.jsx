@@ -22,11 +22,12 @@ const AboutYou = function () {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(userData);
     about({
-        period_end: userData.lastPeriod,
-        average_period_days: userData.averageCycle,
-        take_pill: userData.takesPill,
-        notification_on: userData.prefersNotifications
+      period_end: userData.lastPeriod,
+      average_period_days: parseInt(userData.averageCycle),
+      take_pill: userData.takesPill,
+      notification_on: userData.prefersNotifications,
     });
   };
 
@@ -73,7 +74,7 @@ const AboutYou = function () {
           <label className="ms-2"> Would you like to get notification </label>
         </div>
 
-        <button type="Submit" className="boton">
+        <button type="submit" className="boton">
           submit
         </button>
       </form>

@@ -38,7 +38,7 @@ class App extends Component {
         },
       })
       .then((response) => {
-        console.log('sign up', response.data);
+        console.log("sign up", response.data);
         this.setState({
           user: response.data,
         });
@@ -47,10 +47,8 @@ class App extends Component {
 
   signIn = (user) => {
     const body = JSON.stringify({
-      user: {
-        email: user.email,
-        password: user.password,
-      },
+      email: user.email,
+      password: user.password,
     });
 
     axios
@@ -76,8 +74,8 @@ class App extends Component {
   };
 
   signOut = () => {
-    localStorage.removeItem('token')
-  }
+    localStorage.removeItem("token");
+  };
 
   componentDidMount() {
     let token = localStorage.getItem("token");
@@ -103,7 +101,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav userName={this.state.user.first_name}/>
+          <Nav userName={this.state.user.first_name} />
           <Routes>
             <Route exact path="/" element={<Home />} />
 
@@ -122,11 +120,10 @@ class App extends Component {
             <Route path="/calendar" element={<Schedule />} />
 
             <Route path="/symptoms" element={<Symptoms />} />
+            <Route path="/about-you" element={<AboutYou />} />
           </Routes>
         </div>
-        <div>
-          <AboutYou />
-        </div>
+        <div></div>
       </Router>
     );
   }
