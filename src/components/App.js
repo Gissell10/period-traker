@@ -38,19 +38,24 @@ class App extends Component {
         },
       })
       .then((response) => {
-        console.log('sign up', response.data);
-        this.setState({
-          user: response.data,
-        });
+        const data = response.data;
+        if (data.token) {
+          localStorage.setItem("token", data.token); // this is fetched later on componentDidMount
+          this.setState({
+            user: data.user,
+          });
+        } else {
+          this.setState({
+            error: data.error,
+          });
+        }
       });
   };
 
   signIn = (user) => {
     const body = JSON.stringify({
-      user: {
         email: user.email,
         password: user.password,
-      },
     });
 
     axios

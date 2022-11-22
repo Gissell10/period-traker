@@ -34,6 +34,6 @@ export const about = (params) => {
       })
       .catch((err) => {
         console.log(err);
-      });
+    });
   }
 };

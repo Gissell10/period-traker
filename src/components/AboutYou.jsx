@@ -24,7 +24,7 @@ const AboutYou = function () {
     event.preventDefault();
     about({
         period_end: userData.lastPeriod,
-        average_period_days: userData.averageCycle,
+        average_period_days: parseInt(userData.averageCycle),
         take_pill: userData.takesPill,
         notification_on: userData.prefersNotifications
     });

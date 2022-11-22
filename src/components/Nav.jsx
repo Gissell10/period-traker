@@ -16,6 +16,11 @@ const Nav = function (props) {
             <Link to="symptoms">Symptoms</Link>
           </li>
         </ul>
+        <ul>
+          <li>
+            {props.userName}
+          </li>
+        </ul>
       </nav>
     )
   }
