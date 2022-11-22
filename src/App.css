@@ -66,3 +66,9 @@ h2 {
 .input-container input:focus {
   box-shadow: 0 0 0 2px #ff1e52;
 }
+
+input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+  accent-color: #ff1e52;
+}
