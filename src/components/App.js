@@ -30,18 +30,27 @@ const App = () => {
         password: user.password,
       },
     });
-    axios
-      .post(SIGN_UP_URL, body, {
+    
+    axios.post(SIGN_UP_URL, body, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
       })
       .then((response) => {
-        setUserState({
-          ...userState,
-          user: response.data,
-        });
+        const data = response.data;
+        if (data.token) {
+          localStorage.setItem("token", data.token); // this is fetched later on componentDidMount
+          setUserState({
+            ...useState,
+            user: data.user,
+          });
+        } else {
+          setUserState({
+            ...userState,
+            error: data.error,
+          });
+        }
       });
   };
 
