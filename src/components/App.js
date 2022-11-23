@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,13 +15,13 @@ const SIGN_UP_URL = "http://localhost:3000/users";
 const SIGN_IN_URL = "http://localhost:3000/login";
 const USER_PROFILE_URL = "http://localhost:3000/profile";
 
-class App extends Component {
-  state = {
+const App = () => {
+  const [userState, setUserState] = useState({
     user: {},
     error: "",
-  };
+  });
 
-  signUp = (user) => {
+  const signUp = (user) => {
     const body = JSON.stringify({
       user: {
         first_name: user.firstName,
@@ -38,13 +38,14 @@ class App extends Component {
         },
       })
       .then((response) => {
-        this.setState({
+        setUserState({
+          ...userState,
           user: response.data,
         });
       });
   };
 
-  signIn = (user) => {
+  const signIn = (user) => {
     const body = JSON.stringify({
       email: user.email,
       password: user.password,
@@ -61,22 +62,24 @@ class App extends Component {
         const data = response.data;
         if (data.token) {
           localStorage.setItem("token", data.token); // this is fetched later on componentDidMount
-          this.setState({
+          setUserState({
+            ...useState,
             user: data.user,
           });
         } else {
-          this.setState({
+          setUserState({
+            ...userState,
             error: data.error,
           });
         }
       });
   };
 
-  signOut = () => {
+  const signOut = () => {
     localStorage.removeItem("token");
   };
 
-  componentDidMount() {
+  useEffect(() => {
     let token = localStorage.getItem("token");
     if (token) {
       axios
@@ -88,44 +91,43 @@ class App extends Component {
         .then((response) => {
           const data = response.data;
           if (data.id) {
-            this.setState({
+            setUserState({
+              ...useState,
               user: data,
             });
           }
         });
     }
-  }
+  }, []);
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Nav userName={this.state.user.first_name} />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
+  return (
+    <Router>
+      <div>
+        <Nav userName={userState.user.first_name} />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
 
-            <Route
-              path="/login"
-              element={
-                <Users
-                  signUp={this.signUp}
-                  signIn={this.signIn}
-                  signOut={this.signOut}
-                  error={this.state.error}
-                />
-              }
-            />
+          <Route
+            path="/login"
+            element={
+              <Users
+                signUp={signUp}
+                signIn={signIn}
+                signOut={signOut}
+                error={userState.error}
+              />
+            }
+          />
 
-            <Route path="/calendar" element={<Schedule />} />
+          <Route path="/calendar" element={<Schedule />} />
 
-            <Route path="/symptoms" element={<Symptoms />} />
-            <Route path="/about-you" element={<AboutYou />} />
-          </Routes>
-        </div>
-        <div></div>
-      </Router>
-    );
-  }
-}
+          <Route path="/symptoms" element={<Symptoms />} />
+          <Route path="/about-you" element={<AboutYou />} />
+        </Routes>
+      </div>
+      <div></div>
+    </Router>
+  );
+};
 
 export default App;

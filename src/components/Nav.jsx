@@ -9,16 +9,13 @@ const Nav = function (props) {
           <li>
             <Link to="calendar">Home</Link>
           </li>
-        </ul>
-        <ul>
           <li>
             <Link to="symptoms">Symptoms</Link>
           </li>
-        </ul>
-        <ul>
           <li>
             <Link to="about-you">About you</Link>
           </li>
+          <li>{props.userName}</li>
         </ul>
       </nav>
     );
