@@ -1,4 +1,3 @@
-// import { Component } from "react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -19,7 +18,7 @@ const USER_PROFILE_URL = "http://localhost:3000/profile";
 const App = () => {
   const [userState, setUserState] = useState({
     user: {},
-    error: ""
+    error: "",
   });
 
   const signUp = (user) => {
@@ -41,8 +40,8 @@ const App = () => {
       .then((response) => {
         setUserState({
           ...userState,
-            user: response.data
-        })
+          user: response.data,
+        });
       });
   };
 
@@ -65,13 +64,13 @@ const App = () => {
           localStorage.setItem("token", data.token); // this is fetched later on componentDidMount
           setUserState({
             ...useState,
-              user: data.user
-          })
+            user: data.user,
+          });
         } else {
           setUserState({
             ...userState,
-              error: data.error
-          })
+            error: data.error,
+          });
         }
       });
   };
@@ -83,7 +82,8 @@ const App = () => {
   useEffect(() => {
     let token = localStorage.getItem("token");
     if (token) {
-      axios.get(USER_PROFILE_URL, {
+      axios
+        .get(USER_PROFILE_URL, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -93,40 +93,41 @@ const App = () => {
           if (data.id) {
             setUserState({
               ...useState,
-                user: data
-            })
+              user: data,
+            });
           }
-      });
+        });
     }
-  }, [])
-  
-    return (
-      <Router>
-        <div>
-          <Nav userName={userState.user.first_name} />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
+  }, []);
 
-            <Route
-              path="/login"
-              element={
-                <Users
-                  signUp={signUp}
-                  signIn={signIn}
-                  signOut={signOut}
-                  error={userState.error}
-              />}
-            />
+  return (
+    <Router>
+      <div>
+        <Nav userName={userState.user.first_name} />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
 
-            <Route path="/calendar" element={<Schedule />} />
+          <Route
+            path="/login"
+            element={
+              <Users
+                signUp={signUp}
+                signIn={signIn}
+                signOut={signOut}
+                error={userState.error}
+              />
+            }
+          />
 
-            <Route path="/symptoms" element={<Symptoms />} />
-            <Route path="/about-you" element={<AboutYou />} />
-          </Routes>
-        </div>
-        <div></div>
-      </Router>
-    );
-}
+          <Route path="/calendar" element={<Schedule />} />
+
+          <Route path="/symptoms" element={<Symptoms />} />
+          <Route path="/about-you" element={<AboutYou />} />
+        </Routes>
+      </div>
+      <div></div>
+    </Router>
+  );
+};
 
 export default App;
