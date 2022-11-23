@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Nav = function (props) {
+  const signOut = () => {
+    props.signOut()
+  }
+
   const getLogged = () => {
     return (
       <nav className="nav">
@@ -16,6 +20,9 @@ const Nav = function (props) {
             <Link to="about-you">About you</Link>
           </li>
           <li>{props.userName}</li>
+          <li>
+            <Link onClick={signOut}>Sign out</Link>
+          </li>
         </ul>
       </nav>
     );

@@ -76,7 +76,8 @@ const App = () => {
   };
 
   const signOut = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
+    window.location.href = '/';
   };
 
   useEffect(() => {
@@ -103,7 +104,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Nav userName={userState.user.first_name} />
+        <Nav userName={userState.user.first_name} signOut={signOut} />
         <Routes>
           <Route exact path="/" element={<Home />} />
 
@@ -113,7 +114,6 @@ const App = () => {
               <Users
                 signUp={signUp}
                 signIn={signIn}
-                signOut={signOut}
                 error={userState.error}
               />
             }
