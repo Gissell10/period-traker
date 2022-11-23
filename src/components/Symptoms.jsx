@@ -1,40 +1,79 @@
 import React, { useState } from "react";
-import Select from "react-select";
-
-const options = [
-  { value: "heavy", label: "Heavy" },
-  { value: "mid", label: "Mid" },
-  { value: "light", label: "Light" },
-];
+import Schedule from "./Schedule";
 
 const Symptoms = function () {
-  const [selectedOption, setSelectedOption] = useState(null);
-  return (
-    <div>
-      <h2>
-        What kinds of symptoms do you have and the extent of the symptoms.
-      </h2>
-      <form>
-        <label>Headache</label>
-        <input type="number" min="1" max="10" />
-        <label>Stomachache</label>
-        <input type="number" min="1" max="10" />
-        <label>Breast pain</label>
-        <input type="number" min="1" max="10" />
-        <label>Emotional fluctuation</label>
-        <input type="number" min="1" max="10" />
-        <label>Others</label>
-        <input type="text"></input>
+  const [symptoms, setSymtoms] = useState({});
 
-        <label>Flow</label>
-        <div className="Flow">
-          <Select
-            defaultValue={selectedOption}
-            nChange={setSelectedOption}
-            options={options}
-          />
+  const handleImput = (event) => {
+    const { name, value } = event.target;
+
+    setSymtoms({
+      ...symptoms,
+      [name]: value,
+    });
+    console.log(symptoms, Schedule.date());
+  };
+
+  const handleSubmit = (e) => {
+    //console.log(date, symptons, level);
+  };
+
+  return (
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5">
+      <h3>Please tell us about your symptoms</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form mb-3">
+          <label>
+            Had Flow:
+            <select
+              name="flow"
+              value={symptoms.value}
+              onChange={handleImput}
+              className="form-select"
+            >
+              <option value="Light">Light</option>
+              <option value="Medium">Medium</option>
+              <option value="Heavy">Heavy</option>
+            </select>
+          </label>
         </div>
-        <button type="Submit">submit</button>
+
+        <label className="form-label">Headache</label>
+        <input
+          type="number"
+          name="headache"
+          value={symptoms.headache}
+          onChange={handleImput}
+          min="1"
+          max="10"
+          className="form-control mb-3"
+        />
+
+        <label className="form-label">Stomachache</label>
+        <input
+          type="number"
+          name="stomachache"
+          value={symptoms.stomachache}
+          onChange={handleImput}
+          min="1"
+          max="10"
+          className="form-control mb-3"
+        />
+
+        <label className="form-label">Breast pain</label>
+        <input
+          type="number"
+          name="breastPain"
+          value={symptoms.breastPain}
+          onChange={handleImput}
+          min="1"
+          max="10"
+          className="form-control mb-3"
+        />
+
+        <button type="submit" className="boton">
+          submit
+        </button>
       </form>
     </div>
   );

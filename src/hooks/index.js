@@ -39,3 +39,25 @@ export const about = (params) => {
       });
   }
 };
+
+export const dataSymptom = (params) => {
+  let token = localStorage.getItem("token");
+  if (token) {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(params),
+    };
+    fetch("http://localhost:3000//cycle/<id>/symptoms", requestOptions)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+};
