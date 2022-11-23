@@ -38,7 +38,6 @@ class App extends Component {
         },
       })
       .then((response) => {
-        console.log("sign up", response.data);
         this.setState({
           user: response.data,
         });
