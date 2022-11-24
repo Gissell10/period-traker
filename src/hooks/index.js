@@ -1,32 +1,23 @@
 import { useEffect, useState } from "react";
 
-export const useCycleData = ({ userId }) => {
+export const useCycleData = () => {
+  let token = localStorage.getItem("token");
+  console.log("cycle data for user ");
   const [cycleData, setCycleData] = useState([]);
-
-  console.log("cycle data for user ", userId);
-
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    console.log(token);
-    if (token) {
-      // const requestOptions = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${token}`
-      //   }
-      // };
-      fetch("http://localhost:3000/cycles", {
-        method: "GET",
+    fetch("http://localhost:3000/cycles", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          setCycleData(json.cycles);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {})
+      .catch((err) => {
+        console.log(err);
+      });
+
     setCycleData([
       {
         id: 1,
