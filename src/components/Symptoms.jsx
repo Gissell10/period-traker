@@ -90,7 +90,7 @@ const Symptoms = function ({ periodDate }) {
         />
 
         <button type="submit" className="boton">
-          submit
+          Submit
         </button>
       </form>
     </div>

@@ -10,7 +10,6 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import runtimeEnv from '@mars/heroku-js-runtime-env';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
