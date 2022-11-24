@@ -1,22 +1,40 @@
 import React, { useState } from "react";
+import { dataSymptom } from "../hooks";
 
 const Symptoms = function ({ periodDate }) {
-  const [symptoms, setSymtoms] = useState({});
+  const [symptoms, setSymptoms] = useState({
+    date: periodDate.toDateString(),
+    symptoms: [],
+  });
 
-  const handleImput = (event) => {
+  const handleInput = (event) => {
     const { name, value } = event.target;
 
-    setSymtoms({
-      ...symptoms,
-      [name]: value,
-    });
+    if (name !== "flow") {
+      const previousSymptom = Object.assign({}, symptoms);
+      previousSymptom.symptoms.push({ symptom_name: name, level: value });
+
+      setSymptoms(previousSymptom);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ ...symptoms, cycle_date: periodDate });
+    console.log(symptoms);
+    for (let i = 0; i < symptoms.symptoms.length; i++) {
+      const currentSymptom = symptoms.symptoms[i];
+      dataSymptom({
+        date: symptoms.date,
+        symptom: currentSymptom.symptom_name,
+        level: parseInt(currentSymptom.level),
+      });
+    }
+    setSymptoms({
+      date: periodDate.toDateString(),
+      symptoms: [],
+    });
   };
-  console.log(periodDate.toDateString(), periodDate);
+
   return (
     <div>
       <h3>Please tell us about your symptoms</h3>
@@ -28,7 +46,7 @@ const Symptoms = function ({ periodDate }) {
             <select
               name="flow"
               value={symptoms.value}
-              onChange={handleImput}
+              onChange={handleInput}
               className="form-select"
             >
               <option value="Light">Light</option>
@@ -43,7 +61,7 @@ const Symptoms = function ({ periodDate }) {
           type="number"
           name="headache"
           value={symptoms.headache}
-          onChange={handleImput}
+          onChange={handleInput}
           min="1"
           max="10"
           className="form-control mb-3"
@@ -54,7 +72,7 @@ const Symptoms = function ({ periodDate }) {
           type="number"
           name="stomachache"
           value={symptoms.stomachache}
-          onChange={handleImput}
+          onChange={handleInput}
           min="1"
           max="10"
           className="form-control mb-3"
@@ -65,7 +83,7 @@ const Symptoms = function ({ periodDate }) {
           type="number"
           name="breastPain"
           value={symptoms.breastPain}
-          onChange={handleImput}
+          onChange={handleInput}
           min="1"
           max="10"
           className="form-control mb-3"

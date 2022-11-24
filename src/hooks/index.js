@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { json } from "react-router-dom";
 
-export const useCycleData = () => {
-  let token = localStorage.getItem("token");
-  console.log("cycle data for user ");
+export const useCycleData = ({ userId }) => {
   const [cycleData, setCycleData] = useState([]);
+  const token = localStorage.getItem("token");
   useEffect(() => {
     fetch("http://localhost:3000/cycles", {
       method: "GET",
@@ -51,6 +50,7 @@ export const about = (params, navigate) => {
 export const dataSymptom = (params) => {
   let token = localStorage.getItem("token");
   if (token) {
+    console.log(token);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ export const dataSymptom = (params) => {
       },
       body: JSON.stringify(params),
     };
-    fetch("http://localhost:3000//cycle/<id>/symptoms", requestOptions)
+    fetch("http://localhost:3000/cycle/symptoms", requestOptions)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
