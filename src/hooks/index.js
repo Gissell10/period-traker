@@ -1,10 +1,11 @@
+import runtimeEnv from '@mars/heroku-js-runtime-env';
 import { useEffect, useState } from "react";
-
+const BACKEND_URL = runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
 export const useCycleData = ({ userId }) => {
   const [cycleData, setCycleData] = useState([]);
   const token = localStorage.getItem("token");
   useEffect(() => {
-    fetch("http://localhost:3000/cycles", {
+    fetch(`${BACKEND_URL}/cycles`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +35,7 @@ export const about = (params) => {
       },
       body: JSON.stringify(params),
     };
-    fetch("http://localhost:3000/setup", requestOptions)
+    fetch(`${BACKEND_URL}/setup`, requestOptions)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
@@ -57,7 +58,7 @@ export const dataSymptom = (params) => {
       },
       body: JSON.stringify(params),
     };
-    fetch("http://localhost:3000/cycle/symptoms", requestOptions)
+    fetch(`${BACKEND_URL}/cycle/symptoms`, requestOptions)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
