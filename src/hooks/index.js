@@ -1,6 +1,5 @@
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 import { useEffect, useState } from "react";
-import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 
 const BACKEND_URL = runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
