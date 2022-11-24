@@ -11,10 +11,10 @@ import AboutYou from "./AboutYou";
 import Schedule from "./Schedule";
 import Symptoms from "./Symptoms";
 import YearCycles from "./YearCycles";
-
-const SIGN_UP_URL = "http://localhost:3000/users";
-const SIGN_IN_URL = "http://localhost:3000/login";
-const USER_PROFILE_URL = "http://localhost:3000/profile";
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000";
+const SIGN_UP_URL = `${BACKEND_URL}/users`;
+const SIGN_IN_URL = `${BACKEND_URL}/login`;
+const USER_PROFILE_URL = `${BACKEND_URL}/profile`;
 
 const App = () => {
   const [userState, setUserState] = useState({
