@@ -81,7 +81,7 @@ const SignUp = ({ onLoggedIn }) => {
   };
 
   return (
-    <div className="col-md-10 mx-auto col-lg-5 rounded-5 usersForm">
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5 usersForm animate__animated animate__fadeInUp animate__faster">
       <h2 className="mb-3 mt-3">Sign Up</h2>
       <form onSubmit={validateSignUp}>
         <div className="input-container">

@@ -36,7 +36,7 @@ const Symptoms = function ({ periodDate }) {
   };
 
   return (
-    <div>
+    <div className="animate__animated animate__fadeInUp animate__faster">
       <h3>Please tell us about your symptoms</h3>
       <div className="my-3">selected date: {periodDate.toDateString()}</div>
       <form onSubmit={handleSubmit}>

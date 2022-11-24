@@ -37,7 +37,7 @@ const AboutYou = function () {
   };
 
   return (
-    <div className="col-md-10 mx-auto col-lg-5 rounded-5">
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5 animate__animated animate__fadeInUp animate__faster">
       <h1 className="text-center my-5">we want to know more about you</h1>
       <form onSubmit={handleSubmit}>
         <label className="form-label"> Last period</label>

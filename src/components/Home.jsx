@@ -15,7 +15,7 @@ class Home extends Component {
 
   render() {
     return (
-      <section className="px-4 py-5 my-5 text-center">
+      <section className="px-4 py-5 my-5 text-center animate__animated animate__fadeInUp animate__faster">
         <div className="col-lg-6 mx-auto">
           <div className="row align-items-center">
             <div className="">
