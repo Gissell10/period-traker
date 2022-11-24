@@ -2,33 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Home extends Component {
-  state = {
-    date: ""
-  };
-
-  getDate() {
-    var date = { currentTime: new Date().toLocaleString() };
-
-    this.setState({
-      date: date
-    });
-  }
-
   render() {
     return (
       <div>
-        <div className="date">
-          <p>{this.state.date}</p>
-        </div>
-
-
-          <h1>Welcome! </h1>
+          <h1>Hey, there!</h1>
 
           <p>Thank you for using Period tracker, women's best friend!</p>
 
-          <p>Now you can manage and record your period and symptoms more scientifically. Then you can find how your cycle affects your body and well being.</p>
+          <p>We often times need to check how we were feeling at some day or check if our period will happen any time soon.</p>
+          <p>Thinking on that, Cycle Tracker can manage this for you. With time, you cycle predictions will get better based on the data you provide to us.</p>
           <p>We hope you have a pleasant experience.</p>
-          <p>Please let us know more about you.</p>
 
         <img scr="img/Tupl.jpeg" />
 
