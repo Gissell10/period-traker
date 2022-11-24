@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
-export const useCycleData = () => {
-  let token = localStorage.getItem("token");
-  console.log("cycle data for user ");
+export const useCycleData = ({ userId }) => {
   const [cycleData, setCycleData] = useState([]);
+  const token = localStorage.getItem("token");
   useEffect(() => {
     fetch("http://localhost:3000/cycles", {
       method: "GET",
@@ -13,33 +12,12 @@ export const useCycleData = () => {
       },
     })
       .then((response) => response.json())
-      .then((json) => {})
+      .then((json) => {
+        setCycleData(json)
+      })
       .catch((err) => {
         console.log(err);
       });
-
-    setCycleData([
-      {
-        id: 1,
-        period_start: new Date(2021, 6, 1),
-        period_end: new Date(2021, 6, 16),
-      },
-      {
-        id: 2,
-        period_start: new Date(2021, 5, 1),
-        period_end: new Date(2021, 5, 3),
-      },
-      {
-        id: 13,
-        period_start: new Date(2021, 3, 1),
-        period_end: new Date(2021, 3, 12),
-      },
-      {
-        id: 4,
-        period_start: new Date(2021, 2, 1),
-        period_end: new Date(2021, 2, 7),
-      },
-    ]);
   }, []);
 
   return cycleData;
@@ -70,6 +48,7 @@ export const about = (params) => {
 export const dataSymptom = (params) => {
   let token = localStorage.getItem("token");
   if (token) {
+    console.log(token)
     const requestOptions = {
       method: "POST",
       headers: {
@@ -78,7 +57,7 @@ export const dataSymptom = (params) => {
       },
       body: JSON.stringify(params),
     };
-    fetch("http://localhost:3000//cycle/<id>/symptoms", requestOptions)
+    fetch("http://localhost:3000/cycle/symptoms", requestOptions)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
