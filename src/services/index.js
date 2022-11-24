@@ -1,8 +1,10 @@
 import axios from "axios";
+import runtimeEnv from '@mars/heroku-js-runtime-env';
 
-const SIGN_UP_URL = "http://localhost:3000/users";
-const SIGN_IN_URL = "http://localhost:3000/login";
-const USER_PROFILE_URL = "http://localhost:3000/profile";
+
+const BACKEND_URL = runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
+const SIGN_UP_URL = `${BACKEND_URL}/users`;
+const SIGN_IN_URL = `${BACKEND_URL}/login`;
 
 export const signUp = ({ user, onSignedIn, onError }) => {
   const body = JSON.stringify({

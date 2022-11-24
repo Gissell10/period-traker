@@ -14,10 +14,7 @@ const Nav = function (props) {
             <Link to="calendar">Home</Link>
           </li>
           <li>
-            <Link to="about-you">About you</Link>
-          </li>
-          <li>
-            <Link to="year-cycle">Year Cycle</Link>
+            <Link to="your-cycles">Your cycles</Link>
           </li>
           <li>{props.userName}</li>
           <li>
