@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { about } from "../hooks";
+import { useNavigate } from "react-router-dom";
 
 const AboutYou = function () {
   const [userData, setUserData] = useState({
@@ -8,6 +9,7 @@ const AboutYou = function () {
     takesPill: false,
     prefersNotifications: false,
   });
+  const navigate = useNavigate();
 
   const handleImput = (event) => {
     const target = event.target;
@@ -23,12 +25,15 @@ const AboutYou = function () {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userData);
-    about({
-      period_end: userData.lastPeriod,
-      average_period_days: parseInt(userData.averageCycle),
-      take_pill: userData.takesPill,
-      notification_on: userData.prefersNotifications,
-    });
+    about(
+      {
+        period_end: userData.lastPeriod,
+        average_period_days: parseInt(userData.averageCycle),
+        take_pill: userData.takesPill,
+        notification_on: userData.prefersNotifications,
+      },
+      navigate
+    );
   };
 
   return (

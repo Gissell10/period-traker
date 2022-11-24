@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { json } from "react-router-dom";
 
 export const useCycleData = () => {
   let token = localStorage.getItem("token");
@@ -13,39 +14,18 @@ export const useCycleData = () => {
       },
     })
       .then((response) => response.json())
-      .then((json) => {})
+      .then((json) => {
+        setCycleData(json);
+      })
       .catch((err) => {
         console.log(err);
       });
-
-    setCycleData([
-      {
-        id: 1,
-        period_start: new Date(2021, 6, 1),
-        period_end: new Date(2021, 6, 16),
-      },
-      {
-        id: 2,
-        period_start: new Date(2021, 5, 1),
-        period_end: new Date(2021, 5, 3),
-      },
-      {
-        id: 13,
-        period_start: new Date(2021, 3, 1),
-        period_end: new Date(2021, 3, 12),
-      },
-      {
-        id: 4,
-        period_start: new Date(2021, 2, 1),
-        period_end: new Date(2021, 2, 7),
-      },
-    ]);
   }, []);
 
   return cycleData;
 };
 
-export const about = (params) => {
+export const about = (params, navigate) => {
   let token = localStorage.getItem("token");
   if (token) {
     const requestOptions = {
@@ -60,6 +40,7 @@ export const about = (params) => {
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
+        navigate("/calendar");
       })
       .catch((err) => {
         console.log(err);

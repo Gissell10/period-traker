@@ -14,7 +14,7 @@ const Symptoms = function ({ periodDate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ ...symptoms, last_period: periodDate });
+    console.log({ ...symptoms, cycle_date: periodDate });
   };
   console.log(periodDate.toDateString(), periodDate);
   return (

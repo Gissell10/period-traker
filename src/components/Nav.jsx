@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Nav = function (props) {
   const signOut = () => {
-    props.signOut()
-  }
+    props.signOut();
+  };
 
   const getLogged = () => {
     return (
@@ -35,17 +35,13 @@ const Nav = function (props) {
           <li>
             <Link to="/"> Home</Link>
           </li>
-        </ul>
 
-        <ul>
           <li>
             <Link to="login">Log in</Link>
           </li>
-        </ul>
 
-        <ul>
           <li>
-            <Link to="signup">Sign Up</Link> {/* need to create a link here */}
+            <Link to="signup">Sign Up</Link>
           </li>
         </ul>
       </nav>
