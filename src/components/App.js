@@ -10,6 +10,7 @@ import Users from "./Users";
 import AboutYou from "./AboutYou";
 import Schedule from "./Schedule";
 import Symptoms from "./Symptoms";
+import YearCycles from "./YearCycles";
 
 const SIGN_UP_URL = "http://localhost:3000/users";
 const SIGN_IN_URL = "http://localhost:3000/login";
@@ -118,11 +119,9 @@ const App = () => {
               />
             }
           />
-
           <Route path="/calendar" element={<Schedule />} />
-
-          <Route path="/symptoms" element={<Symptoms />} />
           <Route path="/about-you" element={<AboutYou />} />
+          <Route path="/year-cycle" element={<YearCycles />} />
         </Routes>
       </div>
       <div></div>
