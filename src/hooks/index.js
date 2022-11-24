@@ -1,6 +1,10 @@
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 import { useEffect, useState } from "react";
+
+import { json } from "react-router-dom";
+
 const BACKEND_URL = runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
+
 export const useCycleData = ({ userId }) => {
   const [cycleData, setCycleData] = useState([]);
   const token = localStorage.getItem("token");
@@ -14,7 +18,7 @@ export const useCycleData = ({ userId }) => {
     })
       .then((response) => response.json())
       .then((json) => {
-        setCycleData(json)
+        setCycleData(json);
       })
       .catch((err) => {
         console.log(err);
@@ -24,7 +28,7 @@ export const useCycleData = ({ userId }) => {
   return cycleData;
 };
 
-export const about = (params) => {
+export const about = (params, navigate) => {
   let token = localStorage.getItem("token");
   if (token) {
     const requestOptions = {
@@ -39,6 +43,7 @@ export const about = (params) => {
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
+        navigate("/calendar");
       })
       .catch((err) => {
         console.log(err);
@@ -49,7 +54,7 @@ export const about = (params) => {
 export const dataSymptom = (params) => {
   let token = localStorage.getItem("token");
   if (token) {
-    console.log(token)
+    console.log(token);
     const requestOptions = {
       method: "POST",
       headers: {

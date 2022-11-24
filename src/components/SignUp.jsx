@@ -1,16 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../services";
 
-const Users = (props) => {
-  return (
-    <div>
-      <SignUp signUp={props.signUp} />
-      <SignIn signIn={props.signIn} />
-    </div>
-  );
-};
-export default Users;
-
-const SignUp = (props) => {
+const SignUp = ({ onLoggedIn }) => {
+  const [signUpError, setSignUpError] = useState();
   const [signUpInput, setSignUpInput] = useState({
     firstName: "",
     lastName: "",
@@ -18,6 +11,7 @@ const SignUp = (props) => {
     password: "",
     passwordConfirmation: "",
   });
+  const navigate = useNavigate();
 
   const [signUpInputError, setSignUpInputError] = useState({
     email: "",
@@ -25,8 +19,17 @@ const SignUp = (props) => {
     passwordConfirmation: "",
   });
 
+  const onSignedIn = (user) => {
+    onLoggedIn(user);
+    navigate("/about-you");
+  };
+
+  const onError = (error) => {
+    setSignUpError(error);
+  };
+
   const handleSignUp = () => {
-    props.signUp(signUpInput);
+    signUp({ user: signUpInput, onSignedIn, onError });
   };
 
   const _handleChange = (name, value) => {
@@ -145,6 +148,7 @@ const SignUp = (props) => {
         </div>
 
         <p className="error-message">{signUpInputError.passwordConfirmation}</p>
+        {signUpError ? <p className="error-message">{signUpError}</p> : null}
 
         <button className="boton">Sign Up</button>
       </form>
@@ -152,53 +156,4 @@ const SignUp = (props) => {
   );
 };
 
-const SignIn = (props) => {
-  const [signInInput, setSignInInput] = useState({
-    email: "",
-    password: "",
-  });
-
-  const _handleChange = (e) => {
-    const inputTarget = e.target.value;
-    const inputName = e.target.name;
-    setSignInInput({
-      ...signInInput,
-      [inputName]: inputTarget,
-    });
-  };
-
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    props.signIn(signInInput);
-  };
-
-  return (
-    <div className="col-md-10 mx-auto col-lg-5 rounded-5 mt-5 usersForm">
-      <h2 className="mb-3 mt-3">Sign In</h2>
-      <form onSubmit={handleSignIn}>
-        <div className="input-container">
-          <input
-            name="email"
-            type="email"
-            value={signInInput.email}
-            onChange={_handleChange}
-            className="form-control mb-3"
-          />
-          <label className={signInInput.email && "filled"}>Email</label>
-        </div>
-        <div className="input-container">
-          <input
-            name="password"
-            type="password"
-            value={signInInput.password}
-            onChange={_handleChange}
-            className="form-control mb-3"
-          />
-          <label className={signInInput.password && "filled"}>Password</label>
-          {props.error ? <p className="error-message">{props.error}</p> : null}
-        </div>
-        <button className="boton">Sign In</button>
-      </form>
-    </div>
-  );
-};
+export default SignUp;

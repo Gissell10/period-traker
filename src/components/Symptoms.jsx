@@ -4,7 +4,7 @@ import { dataSymptom } from "../hooks";
 const Symptoms = function ({ periodDate }) {
   const [symptoms, setSymptoms] = useState({
     date: periodDate.toDateString(),
-    symptoms: []
+    symptoms: [],
   });
 
   const handleInput = (event) => {
@@ -12,15 +12,15 @@ const Symptoms = function ({ periodDate }) {
 
     if (name !== "flow") {
       const previousSymptom = Object.assign({}, symptoms);
-      previousSymptom.symptoms.push({symptom_name: name, level: value})
+      previousSymptom.symptoms.push({ symptom_name: name, level: value });
 
-      setSymptoms(previousSymptom)
+      setSymptoms(previousSymptom);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(symptoms)
+    console.log(symptoms);
     for (let i = 0; i < symptoms.symptoms.length; i++) {
       const currentSymptom = symptoms.symptoms[i];
       dataSymptom({
@@ -29,10 +29,10 @@ const Symptoms = function ({ periodDate }) {
         level: parseInt(currentSymptom.level),
       });
     }
-    setSymptoms({ 
+    setSymptoms({
       date: periodDate.toDateString(),
-      symptoms: []
-    })
+      symptoms: [],
+    });
   };
 
   return (
