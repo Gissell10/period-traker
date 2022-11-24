@@ -9,8 +9,8 @@ const YearCycles = function () {
   const cycleData = useCycleData(); // replace with user id from url params
   console.log(cycleData);
   return (
-    <div className="app">
-      <h1 className="text-center">React Calendar with Range</h1>
+    <div className="app ">
+      <h1 className="text-center my-5">Cylce forecast</h1>
       <div
         className="calendar-container"
         style={{

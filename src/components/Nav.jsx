@@ -8,43 +8,78 @@ const Nav = function (props) {
 
   const getLogged = () => {
     return (
-      <nav className="nav">
-        <ul>
-          <li>
-            <Link to="calendar">Home</Link>
-          </li>
-          <li>
-            <Link to="about-you">About you</Link>
-          </li>
-          <li>
-            <Link to="year-cycle">Year Cycle</Link>
-          </li>
-          <li>{props.userName}</li>
-          <li>
-            <Link onClick={signOut}>Sign out</Link>
-          </li>
-        </ul>
-      </nav>
+      <header className="p-3  border-bottom">
+        <div className="container ">
+          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul className="nav col-12 col-lg-auto me-lg-auto mb-5 justify-content-center mb-md-0">
+              <li className="nav-link px-2 navigator">
+                <Link className="navigator-brand" to="calendar ">
+                  Anita
+                </Link>
+              </li>
+              <li className="nav-link px-2 ">
+                <Link className="navigator" to="about-you">
+                  About you
+                </Link>
+              </li>
+              <li className="nav-link px-2 navigator">
+                <Link className="navigator" to="year-cycle">
+                  Cycle forecast
+                </Link>
+              </li>
+
+              <li className="nav-link px-2 ">
+                <Link onClick={signOut} className="navigator">
+                  Sign out
+                </Link>
+              </li>
+
+              <li className="nav-link ps-5  navigator-name">
+                {props.userName.charAt(0).toUpperCase() +
+                  props.userName.slice(1)}
+                <img
+                  src="https://github.com/mdo.png"
+                  alt="mdo"
+                  width="32"
+                  height="32"
+                  class="rounded-circle"
+                ></img>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
     );
   };
 
   const getNotLogged = () => {
     return (
-      <nav className="nav">
-        <ul>
-          <li>
-            <Link to="/"> Home</Link>
-          </li>
+      <header className="p-3  border-bottom">
+        <div className="container ">
+          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul className="nav col-12 col-lg-auto me-lg-auto mb-5 justify-content-center mb-md-0">
+              <li className="nav-link px-2 ">
+                <Link className="navigator-brand" to="/">
+                  {" "}
+                  Anita
+                </Link>
+              </li>
 
-          <li>
-            <Link to="login">Log in</Link>
-          </li>
+              <li className="nav-link px-2 ">
+                <Link className="navigator" to="login">
+                  Log in
+                </Link>
+              </li>
 
-          <li>
-            <Link to="signup">Sign Up</Link>
-          </li>
-        </ul>
-      </nav>
+              <li className="nav-link px-2 ">
+                <Link className="navigator" to="signup">
+                  Sign Up
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
     );
   };
 

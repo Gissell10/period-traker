@@ -38,10 +38,10 @@ const Symptoms = function ({ periodDate }) {
   return (
     <div>
       <h3>Please tell us about your symptoms</h3>
-      <div>selected date: {periodDate.toDateString()}</div>
+      <div className="my-3">selected date: {periodDate.toDateString()}</div>
       <form onSubmit={handleSubmit}>
         <div className="form mb-3">
-          <label>
+          <label className="my-3">
             Had Flow:
             <select
               name="flow"

@@ -2,44 +2,48 @@ import React, { Component } from "react";
 
 class Home extends Component {
   state = {
-    date: ""
+    date: "",
   };
 
   getDate() {
     var date = { currentTime: new Date().toLocaleString() };
 
     this.setState({
-      date: date
+      date: date,
     });
   }
 
   render() {
     return (
-      <div>
-        <div className="date">
-          <p>{this.state.date}</p>
+      <section className="px-4 py-5 my-5 text-center">
+        <div className="col-lg-6 mx-auto">
+          <div className="row align-items-center">
+            <div className="">
+              <h1 className="display-3 text-center text-md-start mb-3">
+                Welcome to <span className="textName">Anita</span> your period
+                tracker
+              </h1>
+
+              <p className="lead text-center text-md-start text-muted mb-5 mb-lg-8">
+                Thank you for using Anita Period tracker, women's best friend!,
+                Now you can manage and record your period and symptoms more
+                scientifically. Then you can find how your cycle affects your
+                body and well being. We hope you have a pleasant experience
+                Please let us know more about you.
+              </p>
+              <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button className=" btn btn-outline-secondary btn-lg px-4 gap-5">
+                  Sign In
+                </button>
+                <button className=" btn btn-outline-secondary btn-lg px-4 ">
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-
-          <h1>Welcome! </h1>
-
-          <p>Thank you for using Period tracker, women's best friend!</p>
-
-          <p>Now you can manage and record your period and symptoms more scientifically. Then you can find how your cycle affects your body and well being.</p>
-          <p>We hope you have a pleasant experience.</p>
-          <p>Please let us know more about you.</p>
-
-        <img scr="img/Tupl.jpeg" />
-
-        <div className="home-page-button">
-          <button className="boton">Sign In</button>
-          <button className="boton">Sign Out</button>
-        </div>
-
-      </div>
-        
+      </section>
     );
-
-}
+  }
 }
 export default Home;
