@@ -6,7 +6,7 @@ import "react-calendar/dist/Calendar.css";
 
 const YearCycles = function () {
   const { userId } = useParams();
-  const cycleData = useCycleData({ userId }); // replace with user id from url params
+  const cycleData = useCycleData(); // replace with user id from url params
 
   return (
     <div className="app">
