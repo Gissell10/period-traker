@@ -4,17 +4,20 @@ import Symptoms from "./Symptoms";
 import "react-calendar/dist/Calendar.css";
 
 const Schedule = function () {
-  const [date, setDate] = useState(new Date());
+  const [periodDate, setPeriodDate] = useState(new Date());
 
   return (
-    <div>
+    <div className="col-md-10 mx-auto col-lg-5 rounded-5">
       <h1>Period Tracker</h1>
       <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} />
+        <Calendar
+          onChange={setPeriodDate}
+          value={periodDate}
+          className="mb-5"
+        />
       </div>
-      <div>selected date: {date.toDateString()}</div>
 
-      <Symptoms />
+      <Symptoms periodDate={periodDate} />
     </div>
   );
 };

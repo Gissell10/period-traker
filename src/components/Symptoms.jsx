@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Schedule from "./Schedule";
 
-const Symptoms = function () {
+const Symptoms = function ({ periodDate }) {
   const [symptoms, setSymtoms] = useState({});
 
   const handleImput = (event) => {
@@ -11,16 +10,17 @@ const Symptoms = function () {
       ...symptoms,
       [name]: value,
     });
-    console.log(symptoms, Schedule.date());
   };
 
   const handleSubmit = (e) => {
-    //console.log(date, symptons, level);
+    e.preventDefault();
+    console.log({ ...symptoms, last_period: periodDate });
   };
-
+  console.log(periodDate.toDateString(), periodDate);
   return (
-    <div className="col-md-10 mx-auto col-lg-5 rounded-5">
+    <div>
       <h3>Please tell us about your symptoms</h3>
+      <div>selected date: {periodDate.toDateString()}</div>
       <form onSubmit={handleSubmit}>
         <div className="form mb-3">
           <label>
