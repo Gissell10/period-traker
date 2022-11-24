@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   state = {
@@ -32,14 +33,14 @@ class Home extends Component {
         <img scr="img/Tupl.jpeg" />
 
         <div className="home-page-button">
-          <button className="boton">Sign In</button>
-          <button className="boton">Sign Out</button>
+          <Link to="login"><button  className="boton">Sign in</button></Link>
+          <Link to="signup"><button  className="boton">Sign up</button></Link>
         </div>
 
       </div>
         
     );
 
-}
+  }
 }
 export default Home;
