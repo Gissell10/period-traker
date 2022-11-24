@@ -23,7 +23,10 @@ const YearCycles = function () {
           return (
             <div key={periodDate.id}>
               <Calendar
-                value={[periodDate.period_start, periodDate.period_end]}
+                value={[
+                  new Date(periodDate.period_start),
+                  new Date(periodDate.period_end),
+                ]}
               />
             </div>
           );
