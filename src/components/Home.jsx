@@ -21,12 +21,14 @@ class Home extends Component {
                 Please let us know more about you.
               </p>
               <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button className=" btn btn-outline-secondary btn-lg px-4 gap-5">
+                <Link to="login"><button className=" btn btn-outline-secondary btn-lg px-4 gap-5">
                   Sign In
                 </button>
-                <button className=" btn btn-outline-secondary btn-lg px-4 ">
-                  Sign Out
+                </Link>
+                <Link to="singup"><button className=" btn btn-outline-secondary btn-lg px-4 ">
+                  Sign Up
                 </button>
+                </Link>
               </div>
             </div>
           </div>
