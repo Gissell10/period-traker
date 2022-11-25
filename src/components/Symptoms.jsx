@@ -37,12 +37,12 @@ const Symptoms = function ({ periodDate }) {
 
   return (
     <div className="animate__animated animate__fadeInUp animate__faster">
-      <h3>Please tell us about your symptoms</h3>
-      <div className="my-3">selected date: {periodDate.toDateString()}</div>
+      <h3>Please, tell us how you feel</h3>
+      <div className="my-3">Selected date: {periodDate.toDateString()}</div>
       <form onSubmit={handleSubmit}>
         <div className="form mb-3">
           <label className="my-3">
-            Had Flow:
+            Flow intensity:
             <select
               name="flow"
               value={symptoms.value}

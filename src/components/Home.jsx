@@ -25,7 +25,7 @@ class Home extends Component {
                   Sign In
                 </button>
                 </Link>
-                <Link to="singup"><button className=" btn btn-outline-secondary btn-lg px-4 ">
+                <Link to="signup"><button className=" btn btn-outline-secondary btn-lg px-4 ">
                   Sign Up
                 </button>
                 </Link>
