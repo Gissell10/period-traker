@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Anita - Cycle tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Anita - cycle tracker](public/screen_shot.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+Cycle tracker is a website that helps women for monitoring their menstrual cycle and helping to predict periods. It also allows users to record additional information, such as symptoms that occured in a selected day and period flow.
 
-### `npm start`
+After sign up, the user is redirected to the "About you" page, where they insert useful information that will be used to predict future periods. Users also has access to your 'one-year' cycle forecast.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was designed for project2 for the Immersive Software Engineer course from General Assembly, where a full stack development app techiniques were intended to be developed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This repository contains the frontend code project. Ruby on Rails repository is [here](https://github.com/isabelsousac/Cycle-Tracker).
 
-### `npm test`
+Project designed by [Isabel](https://github.com/isabelsousac), [Gissell](https://github.com/Gissell10) and [Kylie](https://github.com/kyliexmq).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Website
 
-### `npm run build`
+This repository application can be accessed through [here](https://cycle-tracker-app.herokuapp.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Stack
+ * React
+ * JavaScript
+ * HTML
+ * CSS
+ * Bootstrap
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future improvements
+* Clicking on one cycle should show information about itself, such as symptoms that occured between it.
+* Make possible for woman to share their logs with their patners.
+* Add period start and birth control pill notification, for users that have chosen to receive previously.
+* Besides symptoms, users can log other things, such as 'sex activity' and 'humor changes'.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
+Special thanks to [The Blade](https://github.com/wofockham) and  [Loden Gendun](https://github.com/Tenzang) for all the patience and guidance.
