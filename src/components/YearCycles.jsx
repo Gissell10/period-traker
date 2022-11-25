@@ -8,7 +8,7 @@ const YearCycles = function () {
   console.log(cycleData);
   return (
     <div className="app animate__animated animate__fadeInUp animate__faster">
-      <h1 className="text-center my-5">Cylce forecast</h1>
+      <h1 className="text-center my-5">Cycle forecast</h1>
       <div
         className="calendar-container"
         style={{
