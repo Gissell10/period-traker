@@ -3,15 +3,29 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-.nav {
-  display: flex;
+.postion {
+  position: relative;
 }
-
+.svg {
+  width: 120rem;
+  height: 100rem;
+  position: absolute;
+  top: -411px;
+  left: -334px;
+  z-index: -2;
+}
+h1 .textName {
+  color: #ff1e52;
+}
+.singUp {
+  background-color: #ff1e52;
+}
 .boton {
   background-color: #ff1e52;
   padding: 10px 50px;
   border: #ff1e52;
   border-radius: 30px;
+  font-size: 25px;
   color: #ffff;
 }
 h2 {
@@ -48,7 +62,32 @@ h2 {
   line-height: 1;
   left: 16px;
 }
-
+.navigator {
+  text-decoration: none;
+  color: rgba(134, 134, 134, 1);
+  font-weight: 300;
+  font-size: 30px;
+}
+.navigator-name {
+  color: #ff1e52;
+  font-weight: 700;
+  font-size: 30px;
+}
+.navigator-brand {
+  text-decoration: none;
+  color: #ff1e52;
+  font-weight: 700;
+  font-size: 40px;
+}
+.navigator-brand:hover {
+  color: #ff1e52;
+}
+.navigator-name:hover {
+  color: #ff1e52;
+}
+.navigator:hover {
+  color: #ff1e52;
+}
 .input-container input {
   height: 64px;
   border-radius: 4px;
@@ -68,15 +107,14 @@ h2 {
 }
 
 input[type="checkbox"] {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   accent-color: #ff1e52;
 }
 
 /* REACT CALENDAR */
 
 .react-calendar {
-  width: 400px;
   max-width: 100%;
   background-color: #fff;
   color: #222;
@@ -117,7 +155,7 @@ abbr[title] {
 }
 
 .react-calendar__tile--now {
-  background: #d4a71333;
+  background: #ff1e52;
   border-radius: 6px;
   font-weight: bold;
   color: #ff1e52;
@@ -150,7 +188,7 @@ abbr[title] {
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #5454c5;
+  background-color: #ff1e52;
 }
 
 .react-calendar__tile--range {

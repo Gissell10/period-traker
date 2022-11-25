@@ -1,10 +1,10 @@
-import runtimeEnv from '@mars/heroku-js-runtime-env';
+import runtimeEnv from "@mars/heroku-js-runtime-env";
 import { useEffect, useState } from "react";
 
+const BACKEND_URL =
+  runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
 
-const BACKEND_URL = runtimeEnv().REACT_APP_BACKEND_URL || "http://localhost:3000";
-
-export const useCycleData = ({ userId }) => {
+export const useCycleData = () => {
   const [cycleData, setCycleData] = useState([]);
   const token = localStorage.getItem("token");
   useEffect(() => {
