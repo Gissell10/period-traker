@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import Calendar from "react-calendar";
 import { useCycleData } from "../hooks";
 import "react-calendar/dist/Calendar.css";

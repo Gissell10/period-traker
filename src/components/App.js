@@ -78,7 +78,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp onLoggedIn={onLoggedIn} />} />
           <Route path="/calendar" element={<Schedule />} />
           <Route path="/about-you" element={<AboutYou />} />
-          <Route path="/year-cycle" element={<YearCycles />} />
+          <Route path="/your-cycles" element={<YearCycles />} />
         </Routes>
       </div>
     </Router>

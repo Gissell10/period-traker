@@ -23,7 +23,7 @@ const Nav = function (props) {
                 </Link>
               </li>
               <li className="nav-link px-2 navigator">
-                <Link className="navigator" to="year-cycle">
+                <Link className="navigator" to="your-cycles">
                   Cycle forecast
                 </Link>
               </li>

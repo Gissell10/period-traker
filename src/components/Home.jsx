@@ -1,18 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
-  state = {
-    date: "",
-  };
-
-  getDate() {
-    var date = { currentTime: new Date().toLocaleString() };
-
-    this.setState({
-      date: date,
-    });
-  }
-
   render() {
     return (
       <section className="px-4 py-5 my-5 text-center animate__animated animate__fadeInUp animate__faster">
