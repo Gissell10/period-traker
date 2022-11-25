@@ -17,11 +17,6 @@ const Nav = function (props) {
                   Anita
                 </Link>
               </li>
-              <li className="nav-link px-2 ">
-                <Link className="navigator" to="about-you">
-                  About you
-                </Link>
-              </li>
               <li className="nav-link px-2 navigator">
                 <Link className="navigator" to="your-cycles">
                   Cycle forecast
